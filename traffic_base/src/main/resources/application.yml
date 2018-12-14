@@ -5,7 +5,7 @@ spring:
     name: traffic-base
   datasource:
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://192.168.0.169:3306/traffic_base?characterEncoding=utf-8
+      url: jdbc:mysql://192.168.0.169:3306/tensquare_base?characterEncoding=utf-8
       username: root
       password: root
   jpa:
