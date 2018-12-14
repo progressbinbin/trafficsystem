@@ -17,7 +17,7 @@ public class Label implements Serializable {
     private String state;//状态
     private Long count;//使用数量
     private Long fans;//关注数
-    private String recommand;//是否推荐
+    private String recommend;//是否推荐
 
     public String getId() {
         return id;
@@ -59,11 +59,11 @@ public class Label implements Serializable {
         this.fans = fans;
     }
 
-    public String getRecommand() {
-        return recommand;
+    public String getRecommend() {
+        return recommend;
     }
 
-    public void setRecommand(String recommand) {
-        this.recommand = recommand;
+    public void setRecommend(String recommend) {
+        this.recommend = recommend;
     }
 }
