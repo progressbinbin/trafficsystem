@@ -33,6 +33,14 @@ public class Result {
         this.flag = flag;
     }
 
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
     public String getMessage() {
         return message;
     }

@@ -24,6 +24,7 @@ public class LabelService {
     }
 
     public Label findById(String id){
+        int i=1/0;
         return labelDao.findById(id).get();
     }
 
