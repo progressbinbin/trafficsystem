@@ -67,5 +67,6 @@ public class LabelService {
     }
 
     public Page<Label> findByPage(Label label, int page, int size) {
+        return  null;
     }
 }
