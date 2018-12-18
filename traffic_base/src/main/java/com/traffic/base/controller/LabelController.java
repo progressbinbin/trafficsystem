@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Method;
+import java.util.List;
 
 /**
  * Created by yuantousanfen on 2018/12/11.
@@ -42,5 +43,10 @@ public class LabelController {
     public Result deleteById(@PathVariable("labelId") String id){
         labelService.deleteById(id);
         return new Result(true,StatusCode.OK,"删除成功");
+    }
+    @RequestMapping(value="/search",method=RequestMethod.POST)
+    public Result findSearch(@RequestBody Label label){
+        List<Label> list= labelService.findSearch(label);
+        return new Result(true,StatusCode.OK,"查询成功",list);
     }
 }
