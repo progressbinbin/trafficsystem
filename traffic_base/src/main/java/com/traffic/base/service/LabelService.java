@@ -3,6 +3,7 @@ package com.traffic.base.service;
 import com.traffic.base.dao.LabelDao;
 import com.traffic.base.pojo.Label;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -63,5 +64,8 @@ public class LabelService {
                 return cb.and(predicates);
             }
         });
+    }
+
+    public Page<Label> findByPage(Label label, int page, int size) {
     }
 }
