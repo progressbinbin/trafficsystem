@@ -69,7 +69,7 @@ public class LabelService {
     }
 
     public Page<Label> findByPage(Label label, int page, int size) {
-        Pageable pageable= PageRequest.of(page,size);
+        Pageable pageable= PageRequest.of(page-1,size);
         return labelDao.findAll(new Specification<Label>() {
             @Override
             public Predicate toPredicate(Root<Label> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
