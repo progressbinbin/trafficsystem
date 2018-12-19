@@ -4,6 +4,8 @@ import com.traffic.base.dao.LabelDao;
 import com.traffic.base.pojo.Label;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -67,6 +69,23 @@ public class LabelService {
     }
 
     public Page<Label> findByPage(Label label, int page, int size) {
-        return  null;
+        Pageable pageable= PageRequest.of(page,size);
+        return labelDao.findAll(new Specification<Label>() {
+            @Override
+            public Predicate toPredicate(Root<Label> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                List<Predicate> list=new ArrayList<>();
+                if(label.getLabelname()!=null &&!"".equals(label.getLabelname())){
+                    Predicate predicate=cb.like(root.get("labelname").as(String.class),"%"+label.getLabelname()+"%");
+                    list.add(predicate);
+                }
+                if(label.getState()!=null&&!"".equals(label.getState())){
+                    Predicate predicate=cb.equal(root.get("state").as(String.class),label.getState());
+                    list.add(predicate);
+                }
+                Predicate[] predicates=new Predicate[list.size()];
+                list.toArray(predicates);
+                return cb.and(predicates);
+            }
+        },pageable);
     }
 }
