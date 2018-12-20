@@ -2,6 +2,7 @@ package com.traffic.recruit.controller;
 import java.util.List;
 import java.util.Map;
 
+import jdk.net.SocketFlow;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,8 +30,14 @@ public class RecruitController {
 
 	@Autowired
 	private RecruitService recruitService;
-	
-	
+	@RequestMapping(value="/search/commend",method=RequestMethod.GET)
+	public Result recommend(){
+	return new Result(true,StatusCode.OK,"查询成功",recruitService.recommend());
+	}
+	@RequestMapping(value = "/search/newlist",method=RequestMethod.POST)
+	public Result newList(){
+		return new Result(true, StatusCode.OK,"查询成功",recruitService.newList());
+	}
 	/**
 	 * 查询全部数据
 	 * @return
