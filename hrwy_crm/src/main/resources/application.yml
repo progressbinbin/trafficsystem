@@ -1,0 +1,13 @@
+server:
+   port:80
+spring:
+  jpa:
+    show-sql: true
+    database: mysql
+  application:
+    name: crm
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.0.169:3306/tensquare_base?characterEncoding=utf-8
+    username: root
+    password: root
