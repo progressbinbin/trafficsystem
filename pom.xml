@@ -10,7 +10,6 @@
     <modules>
         <module>traffic_common</module>
         <module>traffic_base</module>
-        <module>tensquare_recruit</module>
         <module>hrwy_crm</module>
     </modules>
     <packaging>pom</packaging>
